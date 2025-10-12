@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * String utility helper class
  * Provies various string manipulation methods
@@ -36,6 +38,10 @@ public class StringHelper {
     
     // BUG: doesn't handle empty strings
     public static String capitalizeWords(String str) {
+
+        if(Objects.isNull(str) || str.isBlank())
+            return str;
+
         String[] words = str.split(" ");
         StringBuilder result = new StringBuilder();
         for (String word : words) {
