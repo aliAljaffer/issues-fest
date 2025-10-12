@@ -11,3 +11,8 @@ public class ApiController {
         System.out.println("Sending to " + endpoint + ": " + data);
     }
 }
+
+    public boolean validateEndpoint(String endpoint) {
+        // BUG: Very basic validation
+        return endpoint.startsWith("http");
+    }
