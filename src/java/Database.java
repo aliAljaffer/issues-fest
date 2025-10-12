@@ -9,3 +9,8 @@ public class Database {
     
     // TODO: Implement connection logic
 }
+
+    public void connect() {
+        // BUG: No error handling
+        System.out.println("Connecting to " + connectionString);
+    }
