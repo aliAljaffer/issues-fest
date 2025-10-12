@@ -29,3 +29,9 @@ Thank you for your intrest in contributing!
 ## Reporting Bugs
 
 If you find a bug not already in the Issues tab, plese create a new issue!
+
+## Development Workflow
+1. Create feature branch from develop
+2. Make your changes
+3. Submit pull request to develop
+4. After review, merge to develop
