@@ -14,3 +14,12 @@ public class Database {
         // BUG: No error handling
         System.out.println("Connecting to " + connectionString);
     }
+
+    public void disconnect() {
+        System.out.println("Disconnecting...");
+    }
+    
+    // BUG: No error handling for queries
+    public void query(String sql) {
+        System.out.println("Executing: " + sql);
+    }
