@@ -29,3 +29,4 @@ Added more functionaliy and fixed some typos.
 # Version 42 notes
 # Version 43 notes
 # Version 44 notes
+# Version 45 notes
