@@ -17,3 +17,12 @@ public class Cache {
         return store.get(key);
     }
 }
+
+    public void clear() {
+        store.clear();
+    }
+    
+    // TYPO: "sise" instead of "size"
+    public int sise() {
+        return store.size();
+    }
