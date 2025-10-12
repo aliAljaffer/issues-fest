@@ -7,5 +7,6 @@ __pycache__/
 target/
 GITHUB_ISSUES.md
 grapher.sh
-.gitignore
 issues_generator.sh
+m.sh
+more.sh
