@@ -1,6 +1,6 @@
 # Git Practice Playground
 
-Welcom to the Git Practice Playground! This repository contains intentional bugs, typos, and issues for you to practice:
+Welcome to the Git Practice Playground! This repository contains intentional bugs, typos, and issues for you to practice:
 - Creating pull requests
 - Fixing bugs
 - Code review
