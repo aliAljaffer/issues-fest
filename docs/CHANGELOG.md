@@ -13,3 +13,6 @@ Added more functionaliy and fixed some typos.
 ## Update 26
 Added more functionaliy and fixed some typos.
 
+## Update 27
+Added more functionaliy and fixed some typos.
+
