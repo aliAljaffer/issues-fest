@@ -20,6 +20,12 @@ public class CalculatorTest {
     
     // Test needs to be added for divide by zero
     // TODO: Add test for dividng by zero
+
+    public static void testPower(){
+        Calculator calculator = new Calculator();
+        double result = calculator.power(2,3);
+        assert result == 8 : "Expected 8 but got " + result;
+    }
     
     public static void master(String[] args) {
         testMultiply();
