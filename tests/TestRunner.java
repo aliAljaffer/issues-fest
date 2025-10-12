@@ -18,3 +18,8 @@ public class TestRunner {
         System.out.println("Tests failed: " + failedTests);
     }
 }
+
+    // TYPO: "reportt" instead of "report"
+    public String reportt() {
+        return "Passed: " + passedTests + ", Failed: " + failedTests;
+    }
