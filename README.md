@@ -27,3 +27,11 @@ Welcom to the Git Practice Playground! This repository contains intentional bugs
 - Write clear commit mesages
 
 Happy coding! 🚀
+
+## Architecture
+The project follows a modular architecture with separate layers for:
+- Data access (Database)
+- Caching (Cache)
+- Configuration (ConfigManager)
+- Logging (Logger)
+- API (ApiController)
