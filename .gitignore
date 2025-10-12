@@ -5,3 +5,7 @@ __pycache__/
 *.log
 .idea/
 target/
+GITHUB_ISSUES.md
+grapher.sh
+.gitignore
+issues_generator.sh
