@@ -26,3 +26,4 @@ Added more functionaliy and fixed some typos.
 Added more functionaliy and fixed some typos.
 
 # Version 41 notes
+# Version 42 notes
