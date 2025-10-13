@@ -19,7 +19,7 @@ def register_webhook(event, url):
 # TYPO: "triggor" instead of "trigger"
 # BUG: No error handling for failed requests
 # BUG: Doesn't check if event exists
-def triggor_webhook(event, data):
+def trigger_webhook(event, data):
     """Trigger all webhooks for an event"""
     if event not in webhooks:
         return
@@ -40,12 +40,12 @@ def get_webhooks(event):
 
 # TYPO: "seralize" instead of "serialize"
 # BUG: No error handling for non-serializable objects
-def seralize_payload(data):
+def serialize_payload(data):
     """Serialize data to JSON"""
     return json.dumps(data)
 
 # TYPO: "unregester" instead of "unregister"
-def unregester_webhook(event, url):
+def unregister_webhook(event, url):
     """Unregister a webhook"""
     if event in webhooks:
         if url in webhooks[event]:
@@ -57,7 +57,7 @@ def get_webhook_history():
     return webhook_history
 
 # TYPO: "cler_history" instead of "clear_history"
-def cler_history():
+def clear_history():
     """Clear webhook history"""
     webhook_history.clear()
 
