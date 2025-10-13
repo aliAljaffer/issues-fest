@@ -29,7 +29,7 @@ public class Calculator {
     }
     
     // TYPO: "sqare" instead of "square"
-    public double sqare(int number) {
+    public double square(int number) {
         return number * number;
     }
 }
