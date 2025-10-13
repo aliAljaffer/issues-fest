@@ -7,6 +7,8 @@ public class ListUtils {
     
     // BUG: doesn't handle empty list
     public static int findMaximum(List<Integer> list) {
+        if (list.isEmpty() || list == null)
+            throw new IllegalArgumentException("List is empty!");
         int max = list.get(0);
         for (int num : list) {
             if (num > max) {
