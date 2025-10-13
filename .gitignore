@@ -8,3 +8,4 @@ target/
 GITHUB_ISSUES.md
 *.sh
 !build.sh
+!scripts/**/*.sh

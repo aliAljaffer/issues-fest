@@ -26,6 +26,8 @@ There are more bugs/typos that don't have an issue open for yet - this is intent
 - `src/python/` - Python source files
 - `tests/` - Test files
 - `docs/` - Docummentation
+- `config/` - Configurations
+- `scripts/` - Bash scripts with hints at where errors might be (DevOps people, this is your call 😆)
 
 ## Rules
 
