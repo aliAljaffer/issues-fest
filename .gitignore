@@ -6,7 +6,5 @@ __pycache__/
 .idea/
 target/
 GITHUB_ISSUES.md
-grapher.sh
-issues_generator.sh
-m.sh
-more.sh
+*.sh
+!build.sh
