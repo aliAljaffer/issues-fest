@@ -1,6 +1,8 @@
 # Git Practice Playground - Issues Fest
 
-NOTE: Yes, some of the issues are easy and obvious, that's the point! 😝
+NOTE: Yes, some of the issues are easy and obvious, that's the point! 😝 See `scripts/` for errors with no comments!
+
+## Purpose of the repository
 
 **New to Git/GitHub?** Welcome to the Git Practice Playground! This repository contains intentional bugs, typos, and issues for you to practice:
 
@@ -12,14 +14,6 @@ NOTE: Yes, some of the issues are easy and obvious, that's the point! 😝
 
 There are more bugs/typos that don't have an issue open for yet - this is intentional and you can create the issue (and the fix and pull request, if you'd like!)
 
-## How to Contribut
-
-1. Browse the **Issues** tab to find bugs and problems
-2. Fork this repositry
-3. Create a new branch for your fix
-4. Make your changes and commit them
-5. Submit a pull request!
-
 ## Project Structre
 
 - `src/java/` - Java source files (Most errors commented)
@@ -29,6 +23,14 @@ There are more bugs/typos that don't have an issue open for yet - this is intent
 - `tests/` - Test files
 - `docs/` - Docummentation
 - `config/` - Configurations
+
+## How to Contribut
+
+1. Browse the **Issues** tab to find bugs and problems
+2. Fork this repositry
+3. Create a new branch for your fix
+4. Make your changes and commit them
+5. Submit a pull request!
 
 ## Rules
 
