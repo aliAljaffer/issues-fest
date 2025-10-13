@@ -14,6 +14,7 @@ const config = {
   },
 
   // API Keys (should be in environment variables)
+  // Not actual API keys btw ;)
   apiKeys: {
     stripe: 'sk_live_51HxJ8K2eZvKYlo2C0tXBZJ8K9mNoPqRsT3vU4wX5yZ6aB7cD8eF9gH0iJ1kL2mN3oP4qR5sT6uV7wX8yZ9',
     sendgrid: 'SG.xYz123AbC456DeF789GhI012JkL345MnO678PqR901StU234VwX567YzA890',
