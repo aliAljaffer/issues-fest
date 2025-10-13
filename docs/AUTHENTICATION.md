@@ -20,7 +20,7 @@ boolean success = auth.authenticate("john", "password123");
 
 ## Session Management
 
-Sessions are created upon successful login and remaster active until logout.
+Sessions are created upon successful login and remain active until logout.
 
 ## Known Issues
 
