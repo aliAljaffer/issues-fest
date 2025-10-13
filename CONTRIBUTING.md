@@ -5,7 +5,7 @@ Thank you for your intrest in contributing!
 ## How to Contribut
 
 1. **Fork the repositry** - Click the fork button
-2. **Clone your fork** - `git clone https://github.com/YOUR_USERNAME/git-practice-playground.git`
+2. **Clone your fork** - `git clone https://github.com/YOUR_USERNAME/issues-fest.git`
 3. **Create a branch** - `git checkout -b fix/issue-name`
 4. **Make changes** - Fix one issue at a time
 5. **Commit** - Use clear commit mesages
