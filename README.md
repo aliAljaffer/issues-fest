@@ -1,6 +1,9 @@
-# Git Practice Playground
+# Git Practice Playground - Issues Fest
+
+NOTE: Yes, some of the issues are easy and obvious, that's the point! 😝
 
 Welcome to the Git Practice Playground! This repository contains intentional bugs, typos, and issues for you to practice:
+
 - Creating pull requests
 - Fixing bugs
 - Code review
@@ -16,12 +19,14 @@ Welcome to the Git Practice Playground! This repository contains intentional bug
 5. Submit a pull request!
 
 ## Project Structre
+
 - `src/java/` - Java source files
 - `src/python/` - Python source files
 - `tests/` - Test files
 - `docs/` - Docummentation
 
 ## Rules
+
 - One fix per pull request
 - Reference the issue number in your PR
 - Write clear commit mesages
@@ -29,7 +34,9 @@ Welcome to the Git Practice Playground! This repository contains intentional bug
 Happy coding! 🚀
 
 ## Architecture
+
 The project follows a modular architecture with separate layers for:
+
 - Data access (Database)
 - Caching (Cache)
 - Configuration (ConfigManager)
