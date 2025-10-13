@@ -26,7 +26,7 @@ public class Validator {
     }
     
     // TYPO: "valdate" instead of "validate"
-    public static boolean valdatePhoneNumber(String phone) {
+    public static boolean validatePhoneNumber(String phone) {
         return phone.matches("\\d{10}");
     }
 }
