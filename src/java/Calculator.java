@@ -25,7 +25,7 @@ public class Calculator {
     
     // BUG: power function has wrong logic
     public double power(int base, int exponent) {
-        return base * exponent;
+        return Math.pow(base, exponent);
     }
     
     // TYPO: "sqare" instead of "square"
