@@ -4,19 +4,36 @@ Provides password hashing and session management
 
 SECURITY WARNING: Uses insecure hashing algorithms
 """
-import hashlib
 import random
 import time
+from argon2 import PasswordHasher
+from argon2.exceptions import VerifyMismatchError
 
-# BUG: Using MD5 which is cryptographically broken - CRITICAL
-def hash_password(password):
-    """Hash a password using MD5 (INSECURE)"""
-    return hashlib.md5(password.encode()).hexdigest()
+# Create a PasswordHasher instance with recommended parameters
+ph = PasswordHasher(
+    time_cost=3,       # Number of iterations
+    memory_cost=64 * 1024,  # 64 MB
+    parallelism=4,     # Number of parallel threads
+    hash_len=32,       # Length of the hash
+    salt_len=16        # Length of random salt
+)
 
-# TYPO: "verfiy" instead of "verify"
-def verfiy_password(password, hash):
-    """Verify a password against a hash"""
-    return hash_password(password) == hash
+def hash_password(passwd: str) -> str:
+    """
+    Hash a password using Argon2.
+    Returns the hash as a string (includes salt internally).
+    """
+    return ph.hash(passwd)
+
+def verify_password(passwd: str, hashed: str) -> bool:
+    """
+    Verify a password against a stored Argon2 hash.
+    Returns True if the password matches, False otherwise.
+    """
+    try:
+        return ph.verify(hashed, passwd)
+    except VerifyMismatchError:
+        return False
 
 # BUG: No rate limiting implementation
 # BUG: Hardcoded limit is too high (100 attempts)
