@@ -22,12 +22,13 @@ There are more bugs/typos that don't have an issue open for yet - this is intent
 
 ## Project Structre
 
-- `src/java/` - Java source files
-- `src/python/` - Python source files
+- `src/java/` - Java source files (Most errors commented)
+- `src/python/` - Python source files (Most errors commented)
+- `src/javascript/` - Python source files (Few errors commented, others you have to discover)
+- `scripts/` - Bash scripts with hints at where errors might be (No errors commented. This is for DevOps peeps!😉)
 - `tests/` - Test files
 - `docs/` - Docummentation
 - `config/` - Configurations
-- `scripts/` - Bash scripts with hints at where errors might be (DevOps people, this is your call 😆)
 
 ## Rules
 

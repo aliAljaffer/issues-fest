@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Analytics with exposed tracking ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123456789-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-123456789-1');
+    </script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Welcome to Dashboard</h1>
+            <div id="user-info"></div>
+        </header>
+
+        <main>
+            <section id="profile"></section>
+            <section id="comments"></section>
+        </main>
+    </div>
+
+    <!-- Inline script with security issues -->
+    <script>
+        // API endpoint exposed in HTML
+        const API_BASE = 'https://api.example.com';
+        const API_KEY = 'pk_live_abc123def456ghi789jkl012mno345';
+
+        // Getting user ID from URL without validation
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+
+        // Loading user data
+        fetch(`${API_BASE}/users/${userId}`, {
+            headers: {
+                'X-API-Key': API_KEY
+            }
+        })
+        .then(response => response.json())
+        .then(user => {
+            // XSS vulnerability: innerHTML with user data
+            document.getElementById('user-info').innerHTML = `
+                <span>Logged in as: ${user.username}</span>
+                <a href="/profile?id=${user.id}">Profile</a>
+            `;
+
+            // Storing sensitive data in global scope
+            window.currentUser = user;
+        })
+        .catch(error => {
+            console.error('Error loading user:', error);
+        });
+
+        // Search function with no debouncing
+        function search(query) {
+            // Making API call on every keystroke
+            fetch(`${API_BASE}/search?q=${query}`, {
+                headers: { 'X-API-Key': API_KEY }
+            })
+            .then(response => response.json())
+            .then(results => {
+                displayResults(results);
+            });
+        }
+
+        function displayResults(results) {
+            const container = document.getElementById('search-results');
+            // XSS vulnerability
+            container.innerHTML = results.map(r => `
+                <div class="result">
+                    <h3>${r.title}</h3>
+                    <p>${r.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Event listener without cleanup
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search');
+            if (searchInput) {
+                searchInput.addEventListener('keyup', (e) => {
+                    search(e.target.value);
+                });
+            }
+        });
+    </script>
+
+    <script src="js/api.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
