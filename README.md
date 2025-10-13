@@ -2,13 +2,15 @@
 
 NOTE: Yes, some of the issues are easy and obvious, that's the point! 😝
 
-Welcome to the Git Practice Playground! This repository contains intentional bugs, typos, and issues for you to practice:
+**New to Git/GitHub?** Welcome to the Git Practice Playground! This repository contains intentional bugs, typos, and issues for you to practice:
 
 - Creating pull requests
 - Fixing bugs
 - Code review
 - Git workflows
 - Issue tracking
+
+There are more bugs/typos that don't have an issue open for yet - this is intentional and you can create the issue (and the fix and pull request, if you'd like!)
 
 ## How to Contribut
 
