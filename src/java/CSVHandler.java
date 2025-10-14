@@ -22,7 +22,7 @@ public class CSVHandler {
 
     // TYPO: "wirteCSV" instead of "writeCSV"
     // BUG: FileWriter never closed - RESOURCE LEAK
-    public void wirteCSV(String filepath, List<String[]> records) throws IOException {
+    public void writeCSV(String filepath, List<String[]> records) throws IOException {
         FileWriter writer = new FileWriter(filepath);
         for (String[] record : records) {
             writer.write(String.join(",", record) + "\n");
