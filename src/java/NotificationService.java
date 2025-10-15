@@ -17,7 +17,7 @@ public class NotificationService {
 
     // BUG: No email validation
     // TYPO: "sendEmial" instead of "sendEmail"
-    public void sendEmial(String recipient, String subject, String body) {
+    public void sendEmail(String recipient, String subject, String body) {
         String message = recipient + ": " + subject + " - " + body;
         emailQueue.add(message);
         System.out.println("Email queued");
@@ -25,18 +25,18 @@ public class NotificationService {
 
     // BUG: No phone number validation
     // TYPO: "phoneNumer" parameter instead of "phoneNumber"
-    public void sendSMS(String phoneNumer, String message) {
-        smsQueue.add(phoneNumer + ": " + message);
+    public void sendSMS(String phoneNumber, String message) {
+        smsQueue.add(phoneNumber + ": " + message);
     }
 
     // TYPO: "sendPushNotificaton" instead of "sendPushNotification"
-    public void sendPushNotificaton(String deviceId, String message) {
+    public void sendPushNotification(String deviceId, String message) {
         pushQueue.add(deviceId + ": " + message);
     }
 
     // TYPO: "procesQueue" instead of "processQueue"
     // BUG: Doesn't handle empty queues
-    public void procesQueue() {
+    public void processQueue() {
         System.out.println("Processing " + emailQueue.size() + " emails");
         emailQueue.clear();
         System.out.println("Processing " + smsQueue.size() + " SMS");
@@ -53,7 +53,7 @@ public class NotificationService {
     }
 
     // TYPO: "brodcast" instead of "broadcast"
-    public void brodcast(String message) {
+    public void broadcast(String message) {
         System.out.println("Broadcasting: " + message);
         // TODO: Send to all registered devices
     }
