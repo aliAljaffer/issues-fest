@@ -46,12 +46,11 @@ public class CSVHandler {
 
     // TYPO: "getHeaderr" instead of "getHeader" (double 'r')
     // BUG: BufferedReader never closed - RESOURCE LEAK
-    public String[] getHeaderr(String filepath) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))){
-            String firstLine = reader.readLine();
-            return firstLine.split(",");
-        }
+    public String[] getHeader(String filepath) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filepath));
+        String firstLine = reader.readLine();
         // BUG: Reader never closed
+        return firstLine;
      }
 
     // BUG: Doesn't handle missing columns
