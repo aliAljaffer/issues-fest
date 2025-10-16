@@ -42,7 +42,7 @@ public class CSVHandler {
 
     // TYPO: "getHeaderr" instead of "getHeader" (double 'r')
     // BUG: BufferedReader never closed - RESOURCE LEAK
-    public String[] getHeaderr(String filepath) throws IOException {
+    public String[] getHeader(String filepath) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filepath));
         String firstLine = reader.readLine();
         // BUG: Reader never closed
