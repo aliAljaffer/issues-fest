@@ -11,24 +11,36 @@ public class EmailTemplate {
     public EmailTemplate() {
         this.templates = new HashMap<>();
         this.subjects = new HashMap<>();
-        loadDefaultTemplates();
+        loadDefaultTemplate();
     }
 
     // BUG: Allows overwriting templates without warning
     public void addTemplate(String name, String content) {
+        if(templates.containsKey(name)){
+            throw new IllegalArgumentException("Template " + name + " already exists.");
+        }
         templates.put(name, content);
     }
 
     // TYPO: "retreive" instead of "retrieve"
     // BUG: Doesn't check if template exists - returns null
-    public String retreive(String name) {
+    public String retrieve(String name) {
+        if(!templates.containsKey(name)){
+            throw new IllegalArgumentException("Template " + name + " does not exist.");
+        }
         return templates.get(name);
     }
 
     // BUG: Doesn't validate placeholder format
     // BUG: Doesn't check if template exists
     public String fillTemplate(String templateName, Map<String, String> variables) {
+        if(!templates.containsKey(templateName)){
+            throw new IllegalArgumentException("Template " + templateName + " does not exist.");
+        }
         String template = templates.get(templateName);
+        if (!template.matches(".*\\{\\{\\w+\\}\\}.*")) {
+            throw new IllegalArgumentException("Template " + templateName + " contains invalid placeholder format.");
+        }
         for (String key : variables.keySet()) {
             template = template.replace("{{" + key + "}}", variables.get(key));
         }
@@ -36,7 +48,7 @@ public class EmailTemplate {
     }
 
     // TYPO: "dlete" instead of "delete"
-    public void dleteTemplate(String name) {
+    public void deleteTemplate(String name) {
         templates.remove(name);
         subjects.remove(name);
     }
@@ -47,12 +59,18 @@ public class EmailTemplate {
     }
 
     // TYPO: "getSubjct" instead of "getSubject"
-    public String getSubjct(String templateName) {
+    public String getSubject(String templateName) {
         return subjects.get(templateName);
     }
 
     // BUG: Allows overwriting without confirmation
     public void setSubject(String templateName, String subject) {
+        if (!templates.containsKey(templateName)) {
+            throw new IllegalArgumentException("Template " + templateName + " does not exist.");
+        }
+        if (subjects.containsKey(templateName)) {
+            throw new IllegalStateException("Subject for template " + templateName + " already set.");
+        }
         subjects.put(templateName, subject);
     }
 }
