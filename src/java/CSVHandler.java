@@ -11,11 +11,13 @@ public class CSVHandler {
     // BUG: BufferedReader never closed - RESOURCE LEAK
     public List<String[]> parseCSV(String filepath) throws IOException {
         List<String[]> records = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(filepath));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            records.add(line.split(","));
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+                records.add(line.split(","));
+            }
         }
+         
         // BUG: Reader never closed
         return records;
     }
@@ -23,10 +25,12 @@ public class CSVHandler {
     // TYPO: "wirteCSV" instead of "writeCSV"
     // BUG: FileWriter never closed - RESOURCE LEAK
     public void writeCSV(String filepath, List<String[]> records) throws IOException {
-        FileWriter writer = new FileWriter(filepath);
-        for (String[] record : records) {
-            writer.write(String.join(",", record) + "\n");
+        try (FileWriter writer = new FileWriter(filepath)){
+             for (String[] record : records) {
+                writer.write(String.join(",", record) + "\n");
+            }
         }
+        
         // BUG: Writer never closed
     }
 
@@ -43,11 +47,12 @@ public class CSVHandler {
     // TYPO: "getHeaderr" instead of "getHeader" (double 'r')
     // BUG: BufferedReader never closed - RESOURCE LEAK
     public String[] getHeaderr(String filepath) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(filepath));
-        String firstLine = reader.readLine();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))){
+            String firstLine = reader.readLine();
+            return firstLine.split(",");
+        }
         // BUG: Reader never closed
-        return firstLine.split(",");
-    }
+     }
 
     // BUG: Doesn't handle missing columns
     public List<String[]> filterRows(List<String[]> records, int columnIndex, String value) {
