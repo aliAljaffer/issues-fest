@@ -46,7 +46,7 @@ public class DataProcessor {
     // TYPO: "medain" instead of "median"
     // BUG: Doesn't handle even-length lists correctly
     // BUG: Doesn't handle empty lists
-    public double medain(List<Double> numbers) {
+    public double median(List<Double> numbers) {
         if (numbers.isEmpty()) {
             return 0;
         }
