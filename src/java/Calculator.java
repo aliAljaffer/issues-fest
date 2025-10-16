@@ -20,7 +20,7 @@ public class Calculator {
     
     // BUG: subtract is backwards
     public int subtract(int a, int b) {
-        return b - a;
+        return a - b;
     }
     
     // BUG: power function has wrong logic
