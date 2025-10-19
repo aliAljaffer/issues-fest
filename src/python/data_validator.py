@@ -18,7 +18,7 @@ def validate_age(age):
 
 # TYPO: "valdate_phone" instead of "validate_phone"
 # BUG: Only validates US phone format
-def valdate_phone(phone):
+def validate_phone(phone):
     """Validate phone number"""
     pattern = r'^\d{3}-\d{3}-\d{4}
     return re.match(pattern, phone) is not None
@@ -31,13 +31,13 @@ def validate_password(password):
 
 # TYPO: "valdate_url" instead of "validate_url"
 # BUG: Very basic URL validation
-def valdate_url(url):
+def validate_url(url):
     """Validate URL format"""
     return url.startswith('http://') or url.startswith('https://')
 
 # BUG: Doesn't validate month/day ranges
 # TYPO: "valdate_date" instead of "validate_date"
-def valdate_date(date_string):
+def validate_date(date_string):
     """Validate date format (YYYY-MM-DD)"""
     pattern = r'^\d{4}-\d{2}-\d{2}
     return re.match(pattern, date_string) is not None
@@ -52,7 +52,7 @@ def validate_positive_number(num):
 
 # TYPO: "valdate_username" instead of "validate_username"
 # BUG: No length validation
-def valdate_username(username):
+def validate_username(username):
     """Validate username format"""
     pattern = r'^[a-zA-Z0-9_]+
     return re.match(pattern, username) is not None
@@ -65,7 +65,7 @@ def validate_zipcode(zipcode):
 
 # TYPO: "valdate_credit_card" instead of "validate_credit_card"
 # BUG: Only checks length, no Luhn algorithm
-def valdate_credit_card(card_number):
+def validate_credit_card(card_number):
     """Validate credit card number"""
     digits = ''.join(filter(str.isdigit, card_number))
     return len(digits) == 16
