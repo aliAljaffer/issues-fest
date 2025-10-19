@@ -51,7 +51,11 @@ public class DataProcessor {
             return 0;
         }
         Collections.sort(numbers);
-        return numbers.get(numbers.size() / 2);
+        if (numbers.size() % 2 == 0) {
+            return(numbers.get(numbers.size() / 2 - 1) + numbers.get(numbers.size() / 2)) / 2;
+        } else {
+            return numbers.get(numbers.size() / 2);
+        }
     }
 
     // BUG: No validation for chunk size (negative or zero)
