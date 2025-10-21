@@ -33,6 +33,12 @@ public class Authentication {
     // BUG: No null checks - will throw NullPointerException
     // BUG: Plain text password comparison - SECURITY ISSUE
     public boolean login(String username, String password) {
+        if (username == null || password == null) {
+            return false;
+        }
+        if (!users.containsKey(username)) {
+            return false;
+        }
         String storedPassword = users.get(username);
         boolean isValid = storedPassword.equals(password);
 
