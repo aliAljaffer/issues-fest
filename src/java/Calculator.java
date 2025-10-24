@@ -10,8 +10,12 @@ public class Calculator {
     }
     
     // BUG: no zero division check
-    public double divide(int a, int b) {
-        return a / b;
+    // ANS: added the zero handling case and typecasted the return value according to the return type
+    public double divide(double a, double b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero.");
+        }
+        return (double) a / b;
     }
     
     public int add(int a, int b) {
