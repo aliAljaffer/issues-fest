@@ -25,7 +25,7 @@ public class RoleManager {
     }
 
     // TYPO: "addPermision" instead of "addPermission"
-    public void addPermision(String role, String permission) {
+    public void addPermission(String role, String permission) {
         if (!rolePermissions.containsKey(role)) {
             rolePermissions.put(role, new HashSet<>());
         }
