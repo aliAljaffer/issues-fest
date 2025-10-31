@@ -22,7 +22,28 @@ public class Validator {
     // TYPO: "atleast" instead of "at least"
     // Password must be atleast 6 characters
     public static boolean isValidPassword(String password) {
-        return password.length() >= 6;
+        if (password.length() < 8) return false;
+
+        boolean hasUpperCase = false;
+        boolean hasLowerCase = false;
+        boolean hasNumber = false;
+        boolean hasSpecialChar = false;
+
+        for (char c : password.toCharArray()) {
+            if (Character.isUpperCase(c)) 
+                hasUpperCase = true;
+            if (Character.isLowerCase(c)) 
+                hasLowerCase = true;
+            if (Character.isDigit(c))
+                hasNumber = true;
+            if (!Character.isLetterOrDigit(c)) {
+                hasSpecialChar = true;
+            }
+        }
+        if (hasLowerCase && hasUpperCase && hasNumber && hasSpecialChar) {
+            return true;
+        }
+        return false;
     }
     
     // TYPO: "valdate" instead of "validate"
