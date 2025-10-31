@@ -27,9 +27,28 @@ public class Calculator {
         return a - b;
     }
     
-    // BUG: power function has wrong logic
-    public double power(int base, int exponent) {
-        return Math.pow(base, exponent);
+    //BUG: calling the in built power function in the user defined one makes no sense 
+    public double power(double base, int exponent) {
+        if(exponent>0){
+            return powerHelper(base, exponent);
+        }
+        if(exponent==0){
+            return 1.0;
+        }
+        else {
+            if (exponent == Integer.MIN_VALUE) {
+                return 1.0/(base * powerHelper(base, Integer.MAX_VALUE));
+            } else {
+                return 1.0 /powerHelper(base, -exponent);
+            }
+        }
+    }
+    double powerHelper(double base, int exponent) {
+        double result = 1.0;
+        for (int i = 0; i < exponent; i++) {
+            result = result * base;
+        }
+        return result;
     }
     
     // TYPO: "sqare" instead of "square"
