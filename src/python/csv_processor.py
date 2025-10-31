@@ -39,7 +39,7 @@ def filter_rows(data, column_name, value):
 # TYPO: "aggrigate" instead of "aggregate"
 # BUG: Assumes all values are numeric without validation
 # BUG: No error handling for non-numeric values
-def aggrigate_column(data, column_name):
+def aggregate_column(data, column_name):
     """Sum all values in a column"""
     values = get_column(data, column_name)
     return sum(float(v) for v in values)
