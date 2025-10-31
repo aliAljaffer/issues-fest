@@ -34,7 +34,10 @@ public class DataProcessor {
     // BUG: Returns 0 for empty list without indication
     public double calculateMean(List<Double> numbers) {
         if (numbers.isEmpty()) {
-            return 0;
+            throw new ArithmeticException("List is empty");
+        }
+        if (numbers.size() == 0) {
+            throw new ArithmeticException("List is empty");
         }
         double sum = 0;
         for (double num : numbers) {
