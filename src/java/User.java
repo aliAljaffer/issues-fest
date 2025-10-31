@@ -27,7 +27,11 @@ public class User {
     
     // BUG: allows negative age
     public void setAge(int age) {
-        this.age = age;
+        if (age >= 0) {
+            this.age = age;
+        } else {
+            this.age = 0;
+        }
     }
     
     // TYPO: "deactivte" instead of "deactivate"
