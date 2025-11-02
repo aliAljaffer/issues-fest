@@ -44,7 +44,7 @@ public class RoleManager {
     }
 
     // TYPO: "remveRole" instead of "removeRole"
-    public void remveRole(String username, String role) {
+    public void removeRole(String username, String role) {
         if (userRoles.containsKey(username)) {
             userRoles.get(username).remove(role);
         }
