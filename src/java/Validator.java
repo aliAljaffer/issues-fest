@@ -20,7 +20,7 @@ public class Validator {
     
     // BUG: weak password validation
     // TYPO: "atleast" instead of "at least"
-    // Password must be atleast 6 characters
+    // Password must be at least 6 characters
     public static boolean isValidPassword(String password) {
         if (password.length() < 8) return false;
 
