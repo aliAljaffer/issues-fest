@@ -14,7 +14,7 @@ def read_csv(filepath):
         return list(reader)
 
 # TYPO: "wirte_csv" instead of "write_csv"
-def wirte_csv(filepath, data):
+def write_csv(filepath, data):
     """Write data to a CSV file"""
     with open(filepath, 'w', newline='') as file:
         writer = csv.writer(file)
@@ -29,7 +29,7 @@ def get_column(data, column_name):
     return [row[index] for row in data[1:]]
 
 # BUG: Doesn't handle empty data
-# BUG: Doesn't validate column exists
+# BUG: Doesn't validate column existsgit add src/python/csv_processor.py
 def filter_rows(data, column_name, value):
     """Filter rows where column equals value"""
     headers = data[0]
