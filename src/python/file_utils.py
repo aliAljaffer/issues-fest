@@ -12,14 +12,14 @@ def read_file(filepath):
         return file.read()
 
 # TYPO: "wirte_file" instead of "write_file"
-def wirte_file(filepath, content):
+def write_file(filepath, content):
     """Write content to file"""
     with open(filepath, 'w') as file:
         file.write(content)
 
 # BUG: Doesn't check if file exists before appending
 # TYPO: "appnd_to_file" instead of "append_to_file"
-def appnd_to_file(filepath, content):
+def append_to_file(filepath, content):
     """Append content to file"""
     with open(filepath, 'a') as file:
         file.write(content)
@@ -32,7 +32,7 @@ def copy_file(source, destination):
 
 # TYPO: "delet_file" instead of "delete_file"
 # BUG: No confirmation before deletion
-def delet_file(filepath):
+def delete_file(filepath):
     """Delete a file"""
     os.remove(filepath)
 
@@ -43,7 +43,7 @@ def create_directory(dirpath):
 
 # TYPO: "get_file_sise" instead of "get_file_size"
 # BUG: No error handling
-def get_file_sise(filepath):
+def get_file_size(filepath):
     """Get file size in bytes"""
     return os.path.getsize(filepath)
 
@@ -53,14 +53,14 @@ def file_exists(filepath):
     return os.path.exists(filepath)
 
 # TYPO: "list_fils" instead of "list_files"
-def list_fils(directory):
+def list_files(directory):
     """List all files in directory"""
     # BUG: Returns files and directories together
     return os.listdir(directory)
 
 # BUG: Doesn't validate extension format
 # TYPO: "get_file_extensin" instead of "get_file_extension"
-def get_file_extensin(filepath):
+def get_file_extension(filepath):
     """Get file extension"""
     return os.path.splitext(filepath)[1]
 
@@ -71,6 +71,6 @@ def count_lines(filepath):
         return len(file.readlines())
 
 # TYPO: "renam_file" instead of "rename_file"
-def renam_file(old_path, new_path):
+def rename_file(old_path, new_path):
     """Rename a file"""
     os.rename(old_path, new_path)
