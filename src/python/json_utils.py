@@ -13,14 +13,14 @@ def read_json(filepath):
         return json.load(file)
 
 # TYPO: "wirte_json" instead of "write_json"
-def wirte_json(filepath, data):
+def write_json(filepath, data):
     """Write data to JSON file"""
     with open(filepath, 'w') as file:
         json.dump(data, file)
 
 # BUG: No indentation, hard to read output
 # TYPO: "wirte_pretty_json" instead of "write_pretty_json"
-def wirte_pretty_json(filepath, data):
+def write_pretty_json(filepath, data):
     """Write formatted JSON to file"""
     with open(filepath, 'w') as file:
         json.dump(data, file, indent=2)
@@ -35,7 +35,7 @@ def get_nested_value(data, keys):
     return result
 
 # TYPO: "valdate_json" instead of "validate_json"
-def valdate_json(json_string):
+def validate_json(json_string):
     """Validate if string is valid JSON"""
     try:
         json.loads(json_string)
@@ -45,7 +45,7 @@ def valdate_json(json_string):
 
 # BUG: Doesn't handle file not found
 # TYPO: "merg_json_files" instead of "merge_json_files"
-def merg_json_files(filepath1, filepath2):
+def merge_json_files(filepath1, filepath2):
     """Merge two JSON files"""
     data1 = read_json(filepath1)
     data2 = read_json(filepath2)
@@ -58,16 +58,16 @@ def update_json_file(filepath, updates):
     """Update values in a JSON file"""
     data = read_json(filepath)
     data.update(updates)
-    wirte_json(filepath, data)
+    write_json(filepath, data)
 
 # TYPO: "seralize" instead of "serialize"
-def seralize(obj):
+def serialize(obj):
     """Serialize object to JSON string"""
     # BUG: No handling for non-serializable objects
     return json.dumps(obj)
 
 # TYPO: "deseralize" instead of "deserialize"
-def deseralize(json_string):
+def deserialize(json_string):
     """Deserialize JSON string to object"""
     return json.loads(json_string)
 
