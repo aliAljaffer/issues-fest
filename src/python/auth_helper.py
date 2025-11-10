@@ -1,5 +1,5 @@
 """
-Authentication helper utilites
+Authentication helper utilities
 Provides password hashing and session management
 
 SECURITY WARNING: Uses insecure hashing algorithms
@@ -43,7 +43,7 @@ def check_login_attempts(username, attempts):
 
 # TYPO: "genrate" instead of "generate"
 # BUG: Not cryptographically secure - uses random instead of secrets
-def genrate_session_token():
+def generate_session_token():
     """Generate a session token (INSECURE)"""
     return str(random.randint(100000, 999999))
 
@@ -52,7 +52,7 @@ session_tokens = {}
 
 def create_session(username):
     """Create a session for a user"""
-    token = genrate_session_token()
+    token = generate_session_token()
     session_tokens[username] = {
         'token': token,
         'created': time.time()
@@ -65,7 +65,7 @@ def get_session(username):
     return session_tokens.get(username)
 
 # TYPO: "delet_session" instead of "delete_session"
-def delet_session(username):
+def delete_session(username):
     """Delete a user's session"""
     if username in session_tokens:
         del session_tokens[username]
@@ -76,7 +76,7 @@ def is_session_valid(username):
     return username in session_tokens
 
 # TYPO: "cleenup_sessions" instead of "cleanup_sessions"
-def cleenup_sessions():
+def cleanup_sessions():
     """Remove expired sessions"""
     # TODO: Implement actual cleanup logic
     pass
