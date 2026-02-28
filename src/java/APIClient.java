@@ -34,7 +34,6 @@ public class APIClient {
         return response.toString();
     }
 
-    // TYPO: "psot" instead of "post"
     // BUG: OutputStream never closed - RESOURCE LEAK
     // BUG: No content-type header set
     public String post(String endpoint, String data) throws IOException {
@@ -56,7 +55,6 @@ public class APIClient {
         return true;
     }
 
-    // TYPO: "setAthenticationToken" instead of "setAuthenticationToken"
     public void setAuthenticationToken(String token) {
         // BUG: Token stored but never used in requests
         this.authToken = token;
@@ -68,7 +66,7 @@ public class APIClient {
         this.timeout = milliseconds;
     }
 
-    // TYPO: "delet" instead of "delete"
+   
     public String delete(String endpoint) throws IOException {
         URL url = new URL(baseUrl + endpoint);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
