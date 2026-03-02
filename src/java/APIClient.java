@@ -16,25 +16,24 @@ public class APIClient {
 
     // BUG: No timeout configured on connection
     // BUG: No error handling for network failures
-    // BUG: BufferedReader never closed - RESOURCE LEAK
     public String get(String endpoint) throws IOException {
         URL url = new URL(baseUrl + endpoint);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
 
-        BufferedReader reader = new BufferedReader(
-            new InputStreamReader(conn.getInputStream())
-        );
-        StringBuilder response = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            response.append(line);
-        }
-        // BUG: Reader never closed
-        return response.toString();
+  StringBuilder response = new StringBuilder();
+
+try (BufferedReader reader = new BufferedReader(
+        new InputStreamReader(conn.getInputStream())
+)) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        response.append(line);
+    }
+}
+return response.toString();
     }
 
-    // BUG: OutputStream never closed - RESOURCE LEAK
     // BUG: No content-type header set
     public String post(String endpoint, String data) throws IOException {
         URL url = new URL(baseUrl + endpoint);
@@ -42,12 +41,12 @@ public class APIClient {
         conn.setRequestMethod("POST");
         conn.setDoOutput(true);
 
-        // BUG: No content-type header set
-        OutputStream os = conn.getOutputStream();
-        os.write(data.getBytes());
-        // BUG: Stream never closed
-
-        return "Posted";
+        // BUG: No content-type header set    
+try (OutputStream os = conn.getOutputStream()) {
+    os.write(data.getBytes());
+    os.flush();
+}
+return "Posted";
     }
 
     // BUG: Always returns true - doesn't actually check status
