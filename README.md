@@ -1,5 +1,7 @@
 # Git Practice Playground - Issues Fest
 
+Archived: Apr. 5th, 2026. I can no longer do PR reviews and merges in a timely manner due to ongoing work commitments. Hopefully this was a useful resource for collaboration for others!
+
 NOTE: Yes, some of the issues are easy and obvious, that's the point! 😝 See `scripts/` for errors with no comments!
 
 ## Purpose of the repository
